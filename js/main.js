@@ -12,7 +12,7 @@ Hola Mundo
 Hola Mundo
 Hola Mundo
 ```
- */
+*/
 
 
 var frase = prompt("Ingrese una frase: ")
@@ -55,6 +55,7 @@ Si el primer número es mayor que el segundo imprime los números en el rango de
 ```
 
 Nota: Fíjate que se imprimen también los números en los límites, en el ejemplo el 10 y el 5.
+
 */
 
 var num_1 = prompt("Ingrese primer numero: ")
@@ -95,8 +96,8 @@ Escribe un programa que imprima los números pares del 0 al 100:
 
 Nota 1: cada número debe ir en una nueva línea.
 Nota 2: utiliza un ciclo para solucionar este ejercicio
-
 */
+
 
 for (let i = 0; i <= 100; i++) {
     
@@ -106,6 +107,7 @@ for (let i = 0; i <= 100; i++) {
     }
     
 }
+
 
 /**
  * 
@@ -121,13 +123,45 @@ Ana, Oswaldo, Raúl, Celia, María, Antonio
   - Detrás de Ana y antes de Oswaldo se clasifican dos nuevos concursantes: Roberto y Amaya, en ese orden
   - Hay una nueva participante que pasa a encabezar la clasificación: Marta
 
-Imprime la clasificación actualizada usando una lista ordenada, si el nombre del concursante es Roberto imrpime ademas "en revision del jurado"
+Imprime la clasificacion actualizada usando una lista ordenada, si el nombre del concursante es Roberto imrpime ademas "en revision del jurado"
 
 [Ana, Oswaldo, Raúl, Celia, María, Antonio]
 
-[Ana, Oswaldo, Celia, Raúl, María, -]
+[Ana, Oswaldo, Celia, Raúl, María]
  */
 
-var calificaciones = ['Ana', 'Oswaldo', 'Raúl', 'Celia', 'María', 'Antonio']
+var clasificacion = ['Ana', 'Oswaldo', 'Raúl', 'Celia', 'María', 'Antonio']
 
-console.log(calificaciones)
+
+imprime_Clasificacion()
+
+    //cambios de clasificación
+    
+    clasificacion[2] = 'Celia'
+    clasificacion[3] = 'Raul'
+
+    //Antonio es descalificado
+    clasificacion.pop('Antonio')
+    imprime_Clasificacion()
+
+    //Detrás de Ana y antes de Oswaldo se clasifican dos nuevos concursantes: Roberto y Amaya
+    clasificacion.splice(2, 0, "Roberto", "Amaya");
+
+    //Hay una nueva participante que pasa a encabezar la clasificación: Marta
+    clasificacion.splice(0,0,'Marta')
+
+
+    document.write("<br>");
+    document.write("Clasificación actualizada" + "<br>");
+    clasificacion[3] = "Roberto (clasificacion en revision)"
+    imprime_Clasificacion()
+
+    function imprime_Clasificacion() {
+        
+        for (let i = 0; i < clasificacion.length; i++) {
+
+            document.write([i + 1] + " " + clasificacion[i] + "<br>")
+        }
+        
+        document.write("<br>")
+    }
